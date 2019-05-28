@@ -4,7 +4,6 @@ layout: default
 
 # SKA@IRIS
 
-## Creating a DIRAC UI on your local machine
 <details>
   <summary> Creating a DIRAC UI on your local Linux machine</summary>
  
