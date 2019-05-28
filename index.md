@@ -22,7 +22,7 @@ layout: default
   ./InstallDirac.sh
   ```
 
-  * Then source the DIRAC init scripts:
+  * Finally you need to source the DIRAC init scripts:
 
   ```bash
   source ./dirac_ui/bashrc
