@@ -9,20 +9,20 @@ layout: default
  
   There are three steps to making your own machine a DIRAC UI. You only ever need to do this once.
   
-  The first step is to activate your grid certificate and obtain a grid key: 
+  * The first step is to activate your grid certificate and obtain a grid key: 
   
   ```bash
   ./runMeForCertAndKey /path/to/mycert.p12
   ```
-The script will ask you for your password **four times**. Yes, you read that correctly, *four times*. It will create a directory called <code>.globus</code> and put its outputs in there.
+  The script will ask you for your password **four times**. Yes, you read that correctly, *four times*. It will create a directory called <code>.globus</code> and put its outputs in there.
 
-The second step is to install DIRAC:
+  * The second step is to install DIRAC:
 
   ```bash
   ./InstallDirac.sh
   ```
 
-Then source the DIRAC init scripts:
+  * Then source the DIRAC init scripts:
 
   ```bash
   source ./dirac_ui/bashrc
