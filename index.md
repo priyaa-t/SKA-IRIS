@@ -5,6 +5,13 @@ layout: default
 # SKA@IRIS
 
 <details>
+  <summary markdown="span"> Creating a DIRAC UI on Windows</summary>
+ 
+  Ha ha ha ha ha ha ha ha ha (etc.)
+  
+</details>
+
+<details>
   <summary markdown="span"> Creating a DIRAC UI on Mac OSX</summary>
  
   Once you have created a Linux virtual machine you should ssh into it and follow the steps below for creating a DIRAC UI on a Linux machine.
