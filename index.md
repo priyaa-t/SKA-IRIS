@@ -18,7 +18,7 @@ layout: default
 </details>
 
 <details>
-  <summary markdown="span"> Creating a DIRAC UI on your local Linux machine</summary>
+  <summary markdown="span"> Creating a DIRAC UI on Linux</summary>
  
   There are three steps to making your own machine a DIRAC UI. You only ever need to do this once.
   
