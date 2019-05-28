@@ -57,6 +57,7 @@ You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your 
  
   <details>
     <summary markdown="span"> Example jobsubmit script </summary>
+  
       ```python
       #!/usr/bin/env python
       #
