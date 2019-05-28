@@ -56,7 +56,7 @@ You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your 
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
   <details>
-    <summary markdown="span"> Example jobsubmit script </summary>
+    <summary markdown="span"> <code>eMERLIN-CP-jobsubmit</code> </summary>
   
       ```python
       #!/usr/bin/env python
