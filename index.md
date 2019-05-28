@@ -5,7 +5,7 @@ layout: default
 # SKA@IRIS
 
 <details>
-  <summary> Creating a DIRAC UI on your local Linux machine</summary>
+  <summary markdown="span"> Creating a DIRAC UI on your local Linux machine</summary>
  
   There are three steps to making your own machine a DIRAC UI. You only ever need to do this once.
   
@@ -31,7 +31,7 @@ You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your 
 </details>
 
 <details>
-  <summary> Regenerate your 24 hour grid proxy</summary>
+  <summary markdown="span"> Regenerate your 24 hour grid proxy</summary>
  
   ```bash
   ./SetGridProxy
