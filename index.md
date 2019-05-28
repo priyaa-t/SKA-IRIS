@@ -14,7 +14,7 @@ layout: default
   ```bash
   ./runMeForCertAndKey /path/to/mycert.p12
   ```
-The script will ask you for your password **four times**. Yes, you read that correctly, *four times*. It will create a directory called <code>.globus<code> and put its outputs in there.
+The script will ask you for your password **four times**. Yes, you read that correctly, *four times*. It will create a directory called <code>.globus</code> and put its outputs in there.
 
 The second step is to install DIRAC:
 
