@@ -55,6 +55,6 @@ You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your 
 <details>
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
-  An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./jobsubmit.md).
+  An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
 </details>
