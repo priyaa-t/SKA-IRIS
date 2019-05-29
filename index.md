@@ -70,12 +70,13 @@ layout: default
  
   An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
-    <details>
-      <summary markdown="span"> Submitting a job using DIRAC </summary>
+  ### Tags
 
-      An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
-
-    </details>
+  If you want to submit a high memory job to one of the IRIS fat nodes, your JDL should include:
+  
+  ```python
+  jdl += 'Tags = "nordugrid-Condor-himem";\n'
+  ```
 
 </details>
 
