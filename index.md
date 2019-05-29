@@ -47,8 +47,14 @@ layout: default
   ```bash
   source ./dirac_ui/bashrc
   ```
-You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your home area so that it is automatically called every time you log in or open a new terminal.
+  You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your home area so that it is automatically called every time you log in or open a new terminal.
 
+  At this point you should be all set up. You can test that things work by starting the DIRAC file catalogue client:
+
+  ```bash
+    dirac-dms-filecatalog-cli
+  ```
+  
 </details>
 
 <details>
