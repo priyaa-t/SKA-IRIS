@@ -24,8 +24,12 @@
       jdl += 'JobName = "eMERLIN_CP_IRIS_test";\n'
       
       # Run the job at Manchester
-      jdl += 'Site = "LCG.UKI-NORTHGRID-MAN-HEP.uk";\n'       # in GridPP DIRAC
+      jdl += 'Site = "LCG.UKI-NORTHGRID-MAN-HEP.uk";\n'
+      
+      # Set the output storage element:
       jdl += 'OutputSE = "UKI-NORTHGRID-MAN-HEP-disk";\n'
+      
+      # Tag the job as requiring high memory nodes:
       jdl += 'Tags = "nordugrid-Condor-himem";\n'
       
       # Allows job to run on local queues (must correspond to tags in DIRAC CS!)
@@ -41,8 +45,7 @@
       # something is just a value to show you can add other things too
       jdl += 'Arguments = "%n %s %j something";\n'
 
-      # Send the script you want to run (in this directory where you run man-job-submit
-      # or give the full path to it)
+      # Send the script you want to run (in this directory where you run man-job-submit or give the full path to it)
       jdl += """InputSandbox = { "eMERLIN_CP_IRIS_test.sh", "runjupyter_eMERLIN_CP.sh", "inputs.txt", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/notebook_test/jupyter-casa.simg", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/CASA_eMERLIN_pipeline.tar.gz",
       "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/eMERLIN_CASA_Pipeline_clean.ipynb", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/3C277.1_eMERLIN.tar.gz"};\n"""
 
