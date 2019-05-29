@@ -22,37 +22,13 @@
 
       # Something descriptive for the name! Like 'FastRawMerging'.
       jdl += 'JobName = "eMERLIN_CP_IRIS_test";\n'
-
-      # One job will be created for each parameter in the list
-      #jdl += "Parameters = 10;\n"
-      #jdl += "ParameterStart=1;\n"
-      #jdl += "ParameterStep=1;\n"
-
+      
       # Run the job at Manchester
       jdl += 'Site = "LCG.UKI-NORTHGRID-MAN-HEP.uk";\n'       # in GridPP DIRAC
       jdl += 'OutputSE = "UKI-NORTHGRID-MAN-HEP-disk";\n'
-      #jdl += 'Tags = "8Processors";\n'
       jdl += 'Tags = "nordugrid-Condor-himem";\n'
-      #jdl += 'GridCE = "ce01.tier2.hep.manchester.ac.uk";\n' # IRIS
-      #jdl += 'GridCE = "vm3.tier2.hep.manchester.ac.uk";\n'
-
-      #jdl += 'Site = "LCG.Manchester.uk";\n'                 # in LHCb DIRAC
-      #jdl += 'Site = "VAC.UKI-NORTHGRID-MAN-HEP.uk";\n'      # in GridPP DIRAC
-      #jdl += 'Site = "VAC.Manchester.uk";\n'                 # in LHCb DIRAC
-
-      # Run the job at SARA
-      #jdl += 'Site = "LCG.SARA-MATRIX.nl";\n'                 # in SARA DIRAC
-      #jdl += 'SmpGranularity = 4;\n'
-      #jdl += 'CPUNumber = 4;\n'
-      #jdl += 'OutputSE = "SARA-MATRIX-disk";\n'
-
-      # Run the job at wherever
-      #jdl += 'Site = "LCG.UKI-SOUTHGRID-OX-HEP.uk";\n'      # in GridPP DIRAC
-      #jdl += 'OutputSE = "UKI-SOUTHGRID-OX-HEP-disk";\n'
-      #jdl += 'Tags = "8Processors";\n'
-
+      
       # Allows job to run on local queues (must correspond to tags in DIRAC CS!)
-      # jdl += 'Tags = "manchester";\n'
       jdl += 'Platform = "EL7";\n'
 
       # The script you want to run.
@@ -70,10 +46,6 @@
       jdl += """InputSandbox = { "eMERLIN_CP_IRIS_test.sh", "runjupyter_eMERLIN_CP.sh", "inputs.txt", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/notebook_test/jupyter-casa.simg", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/CASA_eMERLIN_pipeline.tar.gz",
       "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/eMERLIN_CASA_Pipeline_clean.ipynb", "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/3C277.1_eMERLIN.tar.gz"};\n"""
 
-      # Tell DIRAC where to get your big input data files from
-      # %s is the parameter taken from the list given in Parameters = { ... }
-      #jdl += 'InputData = "LFN:/skatelescope.eu/user/r/rachael.ainsworth/notebook_test/3C277.1.MULTTB";\n'
-
       # Direct stdout and stderr to files
       jdl += 'StdOutput = "StdOut";\n';
       jdl += 'StdError = "StdErr";\n';
@@ -85,10 +57,6 @@
       # %j is the unique DIRAC Job ID number.
       # DIRAC looks for this output file in the working directory.
       jdl += 'OutputData = "LFN:/skatelescope.eu/user/r/rachael.ainsworth/eMERLIN_CP_IRIS_test/eMERLIN_CP_IRIS_test_output_%j.tar";\n'
-
-      # Give the OutputSE too if using OutputData:
-      # jdl += 'OutputSE = "UKI-NORTHGRID-MAN-HEP-disk";\n'   # storage in GridPP DIRAC
-      # jdl += 'OutputSE = "CERN-USER";\n'                    # storage in LHCb DIRAC
 
       # Tell DIRAC how many seconds your job might run for
       jdl += 'MaxCPUTime = 1000;\n'
