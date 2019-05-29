@@ -71,9 +71,7 @@ layout: default
   ---
   An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
-  ### Tags
-  
-  <h2 id="header">Tags</h2>
+  <h3 id="header">Tags</h3>
 
   If you want to submit a high memory (1.5TB) job to one of the IRIS fat nodes, your JDL should specify:
   
