@@ -70,6 +70,13 @@ layout: default
  
   An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
+  <details>
+    <summary markdown="span"> Submitting a job using DIRAC </summary>
+ 
+    An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
+  
+  </details>
+
 </details>
 
 <details>
