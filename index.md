@@ -69,7 +69,7 @@ layout: default
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
   ---
-  An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
+  Jobs are submitted to DIRAC using a string command in the DIRAC *job description language* (jdl). Typically this is wrapped in a script that makes it easier to visualise all the elements of the string. An example of a full job submission script is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
   <h3 id="header">Tags</h3>
 
