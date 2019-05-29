@@ -68,6 +68,7 @@ layout: default
 <details>
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
+  ---
   An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
   ### Tags
@@ -77,7 +78,8 @@ layout: default
   ```python
   jdl += 'Tags = "nordugrid-Condor-himem";\n'
   ```
-
+  ---
+  
 </details>
 
 <details>
