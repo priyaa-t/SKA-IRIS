@@ -27,7 +27,7 @@ layout: default
 <details>
   <summary markdown="span"> Creating a DIRAC UI on Linux</summary>
  
-  There are three steps to making your own machine a DIRAC UI. You only ever need to do this once.
+  There are three steps to making your own machine a DIRAC UI. You only ever need to do this once. There are three scripts that you will need: [runMeForCertAndKey](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/runMeForCertAndKey), [InstallDirac.sh](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/InstallDirac.sh) and [SetGridProxy](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/SetGridProxy).
   
   * The first step is to activate your grid certificate and obtain a grid key: 
   
