@@ -1,0 +1,6 @@
+#!/bin/bash
+# Run me with command line argument = path to .p12 file
+mkdir $HOME/.globus
+openssl pkcs12 -in $1 -clcerts -nokeys -out $HOME/.globus/usercert.pem
+openssl pkcs12 -in $1 -nocerts -out $HOME/.globus/userkey.pem
+chmod 0400 $HOME/.globus/userkey.pem
