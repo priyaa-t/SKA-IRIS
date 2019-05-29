@@ -91,6 +91,13 @@ layout: default
 
 <details>
   <summary markdown="span"> Uploading data to the DIRAC file catalogue </summary>
+  ---
+  
+  From your DIRAC UI you can add a dataset to the DIRAC file catalogue using the <code>dirac-dms-add-file</code> command. This example uploads the local file <code>myfile.txt</code> to the file catalogue where it is renamed <code>newfile.txt</code> and placed in the user directory in an individual user's folder. User folders have the format <code>firstname.lastname</code>.
+  
+  ```bash
+  dirac-dms-add-file /skatelescope.eu/users/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
+  ```
  
 </details>
 
