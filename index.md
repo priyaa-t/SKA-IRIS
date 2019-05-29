@@ -5,6 +5,13 @@ layout: default
 # SKA@IRIS
 
 <details>
+  <summary markdown="span"> Getting an X509 grid certificate </summary>
+ 
+  TBD
+  
+</details>
+
+<details>
   <summary markdown="span"> Creating a DIRAC UI on Windows</summary>
  
   Ha ha ha ha ha ha ha ha ha (etc.)
@@ -57,4 +64,19 @@ You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your 
  
   An example of a job submission file is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
+</details>
+
+<details>
+  <summary markdown="span"> Uploading data to the DIRAC file catalogue </summary>
+ 
+</details>
+
+<details>
+  <summary markdown="span"> Downloading data from the DIRAC file catalogue </summary>
+ 
+</details>
+
+<details>
+  <summary markdown="span"> Tracking the status of your jobs </summary>
+ 
 </details>
