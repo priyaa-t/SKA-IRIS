@@ -52,7 +52,7 @@ layout: default
   At this point you should be all set up. You can test that things work by starting the DIRAC file catalogue client:
 
   ```bash
-    dirac-dms-filecatalog-cli
+  dirac-dms-filecatalog-cli
   ```
   
 </details>
