@@ -36,7 +36,7 @@ layout: default
   ```
   The script will ask you for your password **four times**. Yes, you read that correctly, *four times*. It will create a directory called <code>.globus</code> and put its outputs in there.
 
-  * The second step is to install DIRAC:
+  * The second step is to install DIRAC and set your grid proxy, telling it you'e part of the skatelescope.eu VO:
 
   ```bash
   ./InstallDirac.sh
