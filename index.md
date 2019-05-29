@@ -73,11 +73,18 @@ layout: default
   
   ### Tags
 
-  If you want to submit a high memory job to one of the IRIS fat nodes, your JDL should include:
+  If you want to submit a high memory (1.5TB) job to one of the IRIS fat nodes, your JDL should specify:
   
   ```python
   jdl += 'Tags = "nordugrid-Condor-himem";\n'
   ```
+  
+  If you want to submit a standard 8-core job to IRIS, your JDL should specify:
+  
+  ```python
+  jdl += 'Tags = "8Processors";\n'
+  ```
+  
   ---
   
 </details>
