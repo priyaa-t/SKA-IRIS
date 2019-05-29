@@ -65,7 +65,7 @@ layout: default
   ```
 </details>
 
-<details markdown="span">
+<details>
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
   ---
