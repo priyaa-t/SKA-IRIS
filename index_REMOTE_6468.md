@@ -44,14 +44,10 @@ layout: default
   ./InstallDirac.sh
   ```
 
-  * Finally you need to source the DIRAC init scripts depending on what shell do you use:
+  * Finally you need to source the DIRAC init scripts:
 
   ```bash
-  # For bash
   source ./dirac_ui/bashrc
-
-  # For tcsh
-  source ./dirac_ui/tcshrc
   ```
   You can then copy the contents of the DIRAC UI .bashrc into the .bashrc in your home area so that it is automatically called every time you log in or open a new terminal.
 
@@ -75,8 +71,9 @@ layout: default
 <details>
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
-  ---
-  Jobs are submitted to DIRAC using a string command in the DIRAC *job description language* (jdl). Typically this is either wrapped in a script that makes it easier to visualise all the elements of the string. Addtionally, a Dirac Python API can be used. An example of a full job submission script is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
+  <hr>
+  
+  Jobs are submitted to DIRAC using a string command in the DIRAC *job description language* (jdl). Typically this is wrapped in a script that makes it easier to visualise all the elements of the string. An example of a full job submission script is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
   <h3 id="header">Tags</h3>
 

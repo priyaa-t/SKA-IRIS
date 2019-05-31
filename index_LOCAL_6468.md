@@ -27,8 +27,6 @@ layout: default
 <details>
   <summary markdown="span"> Creating a DIRAC UI on Linux</summary>
  
- <hr>
- 
   There are three steps to making your own machine a DIRAC UI. You only ever need to do this once. There are three scripts that you will need: [runMeForCertAndKey](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/runMeForCertAndKey), [InstallDirac.sh](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/InstallDirac.sh) and [SetGridProxy](https://raw.githubusercontent.com/as595/SKA-IRIS/master/DIRACUI/SetGridProxy).
   
   * The first step is to activate your grid certificate and obtain a grid key: 
@@ -60,7 +58,6 @@ layout: default
   ```bash
   dirac-dms-filecatalog-cli
   ```
-  <hr>
   
 </details>
 
@@ -76,7 +73,7 @@ layout: default
   <summary markdown="span"> Submitting a job using DIRAC </summary>
  
   ---
-  Jobs are submitted to DIRAC using a string command in the DIRAC *job description language* (jdl). Typically this is either wrapped in a script that makes it easier to visualise all the elements of the string. Addtionally, a Dirac Python API can be used. An example of a full job submission script is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
+  Jobs are submitted to DIRAC using a string command in the DIRAC *job description language* (jdl). Typically this is either wrapped in a script that makes it easier to visualise all the elements of the string or using the Dirac Python API. An example of a full job submission script is shown in [eMERLIN-CP-jobsubmit](./submitjob.md).
   
   <h3 id="header">Tags</h3>
 
@@ -92,21 +89,12 @@ layout: default
   jdl += 'Tags = "8Processors";\n'
   ```
   
-  <hr>
+  ---
   
 </details>
 
 <details>
   <summary markdown="span"> Uploading data to the DIRAC file catalogue </summary>
-  
-  <hr>
-  
-  From your DIRAC UI you can add a dataset to the DIRAC file catalogue using the <code>dirac-dms-add-file</code> command. This example uploads the local file <code>myfile.txt</code> to the file catalogue on the Manchester HEP storage, where it is renamed <code>newfile.txt</code> and placed in the user directory in an individual user's folder. User folders have the format <code>firstname.lastname</code>.
-  
-  ```bash
-  dirac-dms-add-file /skatelescope.eu/users/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
-  ```
- <hr>
  
 </details>
 
