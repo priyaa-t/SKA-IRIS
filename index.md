@@ -99,7 +99,7 @@ layout: default
    
    <h3 id="header">Methods</h3>
 
-    ```python
+    ```
     # First create your job object
     job = Job()
 
