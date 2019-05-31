@@ -97,6 +97,8 @@ layout: default
 
    Alternatively, jobs can be submitted using the Python Dirac API. This makes easier your job submissions and script configuration. An example of a full submission script using the Dirac API can be found in [eMERLIN-jobsubmit-API](./submit_job_API.md). The documentation for the Dirac API Job methods can be found here [API-Methods](https://dirac.readthedocs.io/en/latest/CodeDocumentation/Interfaces/API/Job.html).
  
+<h3 id="header">Methods</h3>
+
 ```python   
 # First create your job object
 job = Job()
