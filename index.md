@@ -125,6 +125,10 @@ job.setExecutable('/bin/echo', arguments='hello')
 </details>
 
 <details>
+<summary markdown="span"> Submit a job and use Singularity containers </summary>
+</details>
+
+<details>
   <summary markdown="span"> Uploading data to the DIRAC file catalogue </summary>
   
   <hr>
