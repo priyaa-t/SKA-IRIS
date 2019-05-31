@@ -99,7 +99,7 @@ layout: default
    
    <h3 id="header">Methods</h3>
 
-    ```
+    
     # First create your job object
     job = Job()
 
@@ -119,7 +119,7 @@ layout: default
     
     # Set the executable and its arguments (arguments must be in a single string)
     job.setExecutable('/bin/echo', arguments='hello')
-    ```
+  
   <hr>
   
 </details>
