@@ -94,6 +94,10 @@ layout: default
   ```
   
   <hr>
+
+  <hr>
+   Alternatively, jobs can be submitted using the Python Dirac API. This makes easier your job submissions and script configuration.
+  <hr>
   
 </details>
 
