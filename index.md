@@ -95,7 +95,31 @@ layout: default
   
   <hr>
 
-   Alternatively, jobs can be submitted using the Python Dirac API. This makes easier your job submissions and script configuration.
+   Alternatively, jobs can be submitted using the Python Dirac API. This makes easier your job submissions and script configuration. An example of a full submission script using the Dirac API can be found in [eMERLIN-jobsubmit-API](./submit_job_API.md). The documentation for the Dirac API Job methods can be found here [API-Methods](https://dirac.readthedocs.io/en/latest/CodeDocumentation/Interfaces/API/Job.html).
+   
+   <h3 id="header">Methods</h3>
+
+    ```python
+    # First create your job object
+    job = Job()
+
+    # Then we can use the methods
+    # Setting the name of the job
+    job.setName('my job name')
+    
+    # Setting the platform
+    job.setPlatform('EL7')
+    
+    # Adding your tags, they have to be set as a list of strings.
+    tags = ['nordugrid-Condor-himem', '8Processors']
+    job.setTag(tags)
+
+    # Set destination site
+    job.setDestination('LCG.UKI-NORTHGRID-MAN-HEP.uk')
+    
+    # Set the executable and its arguments (arguments must be in a single string)
+    job.setExecutable('/bin/echo', arguments='hello')
+    ```
   <hr>
   
 </details>
