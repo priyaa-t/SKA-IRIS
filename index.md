@@ -134,6 +134,8 @@ job.setExecutable('/bin/echo', arguments='hello')
   ```bash
   dirac-dms-add-file /skatelescope.eu/users/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
   ```
+
+ If you want to add a set o files, you must tar them and then upload tarred file using the <code>dirac-dms-add-file</code> instruction. Then you must untar them in your submitted script. 
  <hr>
  
 </details>
