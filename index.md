@@ -94,7 +94,46 @@ layout: default
   ```
   
   <hr>
+
+   Alternatively, jobs can be submitted using the Python Dirac API. This makes easier your job submissions and script configuration. An example of a full submission script using the Dirac API can be found in [eMERLIN-jobsubmit-API](./submit_job_API.md). The documentation for the Dirac API Job methods can be found here [API-Methods](https://dirac.readthedocs.io/en/latest/CodeDocumentation/Interfaces/API/Job.html).
+ 
+<h3 id="header">Methods</h3>
+
+```python   
+# First create your job object
+job = Job()
+
+# Then we can use the methods
+# Setting the name of the job
+job.setName('my job name')
+    
+# Setting the platform
+job.setPlatform('EL7')
+    
+# Adding your tags, they have to be set as a list of strings.
+tags = ['nordugrid-Condor-himem', '8Processors']
+job.setTag(tags)
+
+# Set destination site
+job.setDestination('LCG.UKI-NORTHGRID-MAN-HEP.uk')
+    
+# Set the executable and its arguments (arguments must be in a single string)
+job.setExecutable('/bin/echo', arguments='hello')
+``` 
+<hr>
   
+</details>
+
+<details>
+<summary markdown="span"> Submit a job and use Singularity containers </summary>
+<hr>
+
+[Singularity](https://singularity.lbl.gov) is installed in each node of the computer grid. Therefore, you can use your own containers to compile and run your applications. We recommend:
+
+- Upload your recipe to a hub like [SingularityHub](https://singularity-hub.org) or [DockerHub](https://hub.docker.com).
+- Run a bash script in your container running the command <code>singularity exec [options] [URI] bash mybashscript.sh</code> in your python DIRAC script.
+
+<hr>
 </details>
 
 <details>
@@ -107,6 +146,8 @@ layout: default
   ```bash
   dirac-dms-add-file /skatelescope.eu/users/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
   ```
+
+ If you want to add a set o files, you must tar them and then upload tarred file using the <code>dirac-dms-add-file</code> instruction. Then you must untar them in your submitted script. 
  <hr>
  
 </details>
@@ -118,5 +159,14 @@ layout: default
 
 <details>
   <summary markdown="span"> Tracking the status of your jobs </summary>
- 
+If you have received your certificate and you have installed it in you browser then on the [GRIDPPWebpage](https://dirac.gridpp.ac.uk:8443) you can track the progress of your submitted jobs. In this section we will give a few examples of how to track them.
+
+1. **Waiting**: This status means that your job/s tags are being studied to be scheduled in a node that fits your requirements.
+![alt text](./images/statuses/waiting.png "Jobs in waiting status")
+
+2. **Running**: Your job is actually running in one of the nodes of the grid. The first image shows that the the jobs are currently running but they are receiving the input data from the Logical File System. The second image shows the same jobs running the input data script that was in the Logical File System.
+![alt text](./images/statuses/running.png "2 jobs running status and 1 job waiting")
+![alt text](./images/statuses/running2.png "2 jobs running status and 1 job waiting")
+
+3. **Failed**: For some reason your job failed. To know the reason you should download the StdOutput file from the SandBox. Additionally, we recommend to send your StdOutput prints to a txt file and then add it to a SandBox.
 </details>
