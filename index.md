@@ -160,9 +160,11 @@ job.setExecutable('/bin/echo', arguments='hello')
   <summary markdown="span"> Tracking the status of your jobs </summary>
   If you have received your certificate and you have installed it in you browser then on the [GRIDPP webpage](https://dirac.gridpp.ac.uk:8443) you can track the progress of your submitted jobs. In this section we will give a few examples of how to track them.
 
-1. Waiting: This status means that your job/s tags are being studied to be scheduled in a node that fits your requirements.
+1. **Waiting**: This status means that your job/s tags are being studied to be scheduled in a node that fits your requirements.
 ![alt text](./images/statuses/waiting.png "Jobs in waiting status")
 
-2. Running: Your job is actually running in one of the nodes of the grid.
-3. Failed: For some reason your job failed. To know the reason you should download the StdOutput file from the SandBox. Additionally, we recommend to send your StdOutput prints to a txt file and then add it to a SandBox.
+2. **Running**: Your job is actually running in one of the nodes of the grid.
+![alt text](./images/statuses/running.png "2 jobs running status and 1 job waiting")
+
+3. **Failed**: For some reason your job failed. To know the reason you should download the StdOutput file from the SandBox. Additionally, we recommend to send your StdOutput prints to a txt file and then add it to a SandBox.
 </details>
