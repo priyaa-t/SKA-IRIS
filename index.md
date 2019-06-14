@@ -127,9 +127,10 @@ job.setExecutable('/bin/echo', arguments='hello')
 <details>
 <summary markdown="span"> Submit a job and use Singularity containers </summary>
 <hr>
+
 [Singularity](https://singularity.lbl.gov) is installed in each node of the computer grid. Therefore, you can use your own containers to compile and run your applications. We recommend:
 
-- Upload your recipe to a hub like [Singularity HUB](https://singularity-hub.org) or [Docker Hub](https://hub.docker.com).
+- Upload your recipe to a hub like [SingularityHub](https://singularity-hub.org) or [DockerHub](https://hub.docker.com).
 - Run a bash script in your container running the command <code>singularity exec [options] [URI] bash mybashscript.sh</code> in your python DIRAC script.
 
 <hr>
