@@ -60,6 +60,7 @@ layout: default
   ```bash
   dirac-dms-filecatalog-cli
   ```
+With the DIRAC file catalague client you should be able to use the instructions <code>mkdir</code> and <code>rm</code>. We recommend to create a folder to save your files in your VO folder and naming it as <name>.<lastname>.
   <hr>
   
 </details>
