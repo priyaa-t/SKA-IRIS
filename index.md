@@ -169,5 +169,8 @@ If you have received your certificate and you have installed it in you browser t
 ![alt text](./images/statuses/running.png "2 jobs running status and 1 job waiting")
 ![alt text](./images/statuses/running2.png "2 jobs running status and 1 job waiting")
 
-3. **Failed**: For some reason your job failed. To know the reason you should download the StdOutput file from the SandBox. Additionally, we recommend to send your StdOutput prints to a txt file and then add it to a SandBox.
+3. **Failed**: For some reason your job failed. To know the reason you should download the StdOutput file from the SandBox. Additionally, we recommend to send your StdOutput prints to a txt file and then add it to the OutputSandBox.
+
+4. **Done**: Your job has finished successfully.
+![alt text](./images/statuses/done.png "3 jobs that have successfully finished")
 </details>
