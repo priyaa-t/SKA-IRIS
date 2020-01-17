@@ -1,0 +1,132 @@
+FROM centos:7
+
+RUN yum -y update
+# Repositories
+RUN yum -y install epel-release
+
+# Packages we need or want
+RUN yum -y install emacs \
+                   joe \
+                   less \
+                   man \
+                   man-pages \
+                   man-pages-overrides \
+                   nano \
+                   openssl \
+                   python3.6 \
+                   python-devel \
+                   python3-devel \
+                   python-pip \
+                   pugixml \
+                   wget \
+                   vim \
+                   sudo \
+                   gsi-openssh-clients\
+                   boost \
+                   boost-thread \
+                   boost-devel \
+                   python-pip \
+                   python3-pip \
+                   python-tk \
+                   python3-tk \
+                   git \
+                   curl \
+                   saods9 \
+                   cmake \
+                   cmake-gui \
+                   gcc-c++ \
+                   gcc-fortran \
+                   ncurses \
+                   ncurses-devel \
+                   readline \
+                   readline-devel \
+                   flex \
+                   bison \
+                   blas \
+                   blas-devel \
+                   lapack \
+                   lapack-devel \
+                   cfitsio \
+                   cfitsio-devel \
+                   wcslib \
+                   wcslib-devel \
+                   hdf5 \
+                   hdf5-devel \
+                   fftw \
+                   fftw-devel \
+                   htop \
+                   screen \
+                   libcr-dev \
+                   mpich \
+                   mpich-doc \
+                   boost-python2 \
+                   boost-python3 \
+                   boost-python2-devel \
+                   boost-python3-devel \
+                   gsl \
+                   gsl-devel \
+                   bzip2
+
+
+# Useful astronomy packages (python 2.7)
+RUN pip install --upgrade pip
+RUN pip install numpy
+RUN pip install matplotlib
+RUN pip install cython
+RUN pip install pyfits 
+RUN pip install pywcs
+RUN pip install astropy
+RUN pip install scipy
+RUN pip install python-casacore
+
+# Useful astronomy packages (python 3.6)
+RUN pip3 install --upgrade pip
+RUN pip3 install numpy
+RUN pip3 install matplotlib
+RUN pip3 install cython
+RUN pip3 install pyfits
+RUN pip3 install pywcs
+RUN pip3 install astropy
+RUN pip3 install scipy
+RUN pip3 install python-casacore
+
+# Install CASA
+RUN wget https://casa.nrao.edu/download/distro/casa-pipeline/release/el7/casa-pipeline-release-5.6.2-2.el7.tar.gz
+RUN tar -xzvf casa-pipeline-release-5.6.2-2.el7.tar.gz
+RUN mkdir -p /usr/local/bin/CASA
+RUN mv casa-pipeline-release-5.6.2-2.el7/* /usr/local/bin/CASA/
+RUN rm -rf casa-pipeline-release-5.6.2-2.el7
+RUN rm -rf casa-pipeline-release-5.6.2-2.el7.tar.gz
+ENV PATH=$PATH:/usr/local/bin/CASA/bin
+
+# Install casacore (just in case)
+RUN git clone --single-branch --branch v3.1.2 https://github.com/casacore/casacore.git && cd casacore
+WORKDIR /casacore
+RUN mkdir -p build
+WORKDIR /casacore/build
+RUN cmake -DUSE_FFTW3=ON -DUSE_OPENMP=ON -DUSE_HDF5=ON -DUSE_THREADS=ON ..
+RUN make -j2
+RUN make install
+WORKDIR /
+# Install Image Domain Gridding (IDG)
+RUN git clone https://gitlab.com/astron-idg/idg.git
+WORKDIR /idg
+RUN mkdir -p build
+WORKDIR /idg/build
+RUN cmake -DCMAKE_INSTALL_PREFIX=/usr/local/idg/ ..
+RUN make -j2
+RUN make install
+WORKDIR /
+# Install WSClean
+RUN wget --header 'Host: ayera.dl.sourceforge.net' --user-agent 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://ayera.dl.sourceforge.net/project/wsclean/wsclean-2.6/wsclean-2.6.tar.bz2' --header 'DNT: 1' --header 'Upgrade-Insecure-Requests: 1' 'https://ayera.dl.sourceforge.net/project/wsclean/wsclean-2.6/wsclean-2.6.tar.bz2' --output-document 'wsclean-2.6.tar.bz2'
+RUN tar -xvf wsclean-2.6.tar.bz2
+WORKDIR /wsclean-2.6
+RUN mkdir -p build
+WORKDIR /wsclean-2.6/build
+RUN cmake ..
+RUN make -j2
+WORKDIR /
+
+# Install pyBDSF
+RUN pip install https://github.com/lofar-astron/PyBDSF/archive/v1.9.1.tar.gz
+RUN pip3 install https://github.com/lofar-astron/PyBDSF/archive/v1.9.1.tar.gz
