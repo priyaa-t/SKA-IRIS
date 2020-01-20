@@ -2,7 +2,9 @@ FROM centos:7
 
 RUN yum -y update
 # Repositories
-RUN yum -y install epel-release
+RUN yum -y --enablerepo=extras install epel-release
+RUN yum -y update
+RUN yum -y upgrade
 
 # Packages we need or want
 RUN yum -y install emacs \
@@ -14,9 +16,8 @@ RUN yum -y install emacs \
                    nano \
                    openssl \
                    python3.6 \
-                   python-devel \
+                   python2-devel \
                    python3-devel \
-                   python-pip \
                    pugixml \
                    wget \
                    vim \
@@ -25,7 +26,7 @@ RUN yum -y install emacs \
                    boost \
                    boost-thread \
                    boost-devel \
-                   python-pip \
+                   python2-pip \
                    python3-pip \
                    python-tk \
                    python3-tk \
@@ -52,8 +53,8 @@ RUN yum -y install emacs \
                    wcslib-devel \
                    hdf5 \
                    hdf5-devel \
-                   fftw \
-                   fftw-devel \
+#                   fftw \
+#                   fftw-devel \
                    htop \
                    screen \
                    libcr-dev \
@@ -65,7 +66,8 @@ RUN yum -y install emacs \
                    boost-python3-devel \
                    gsl \
                    gsl-devel \
-                   bzip2
+                   bzip2 \
+                   doxygen
 
 
 # Useful astronomy packages (python 2.7)
@@ -108,21 +110,41 @@ RUN cmake -DUSE_FFTW3=ON -DUSE_OPENMP=ON -DUSE_HDF5=ON -DUSE_THREADS=ON ..
 RUN make -j2
 RUN make install
 WORKDIR /
+
+# FFTW
+RUN wget http://www.fftw.org/fftw-3.3.8.tar.gz
+RUN tar -xzvf fftw-3.3.8.tar.gz
+WORKDIR fftw-3.3.8/
+#RUN make distclean
+RUN ./configure --enable-float --enable-threads --enable-shared
+RUN make -j2
+RUN make install
+RUN ./configure --enable-threads --enable-shared
+RUN make -j2
+RUN make install
+WORKDIR /
+ENV FFTW_HOME=/usr/local/lib/
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$FFTW_HOME
+RUN ls /usr/local/lib
+RUN ls /usr/local/include
+RUN echo $LD_LIBRARY_PATH
+
 # Install Image Domain Gridding (IDG)
 RUN git clone https://gitlab.com/astron-idg/idg.git
 WORKDIR /idg
 RUN mkdir -p build
 WORKDIR /idg/build
-RUN cmake -DCMAKE_INSTALL_PREFIX=/usr/local/idg/ ..
+RUN cmake -DCMAKE_LIBRARY_PATH=/usr/local/lib -DCMAKE_CXX_FLAGS="-I/usr/local/include" -DCMAKE_PREFIX_PATH="/usr/local/lib" -DCMAKE_INSTALL_PREFIX=/usr/local/idg/ ..
 RUN make -j2
 RUN make install
 WORKDIR /
+
 # Install WSClean
-RUN wget --header 'Host: ayera.dl.sourceforge.net' --user-agent 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://ayera.dl.sourceforge.net/project/wsclean/wsclean-2.6/wsclean-2.6.tar.bz2' --header 'DNT: 1' --header 'Upgrade-Insecure-Requests: 1' 'https://ayera.dl.sourceforge.net/project/wsclean/wsclean-2.6/wsclean-2.6.tar.bz2' --output-document 'wsclean-2.6.tar.bz2'
-RUN tar -xvf wsclean-2.6.tar.bz2
-WORKDIR /wsclean-2.6
+RUN wget --header 'Host: netcologne.dl.sourceforge.net' --user-agent 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://netcologne.dl.sourceforge.net/project/wsclean/wsclean-2.8/wsclean-2.8.tar.bz2' --header 'DNT: 1' --header 'Upgrade-Insecure-Requests: 1' 'https://netcologne.dl.sourceforge.net/project/wsclean/wsclean-2.8/wsclean-2.8.tar.bz2' --output-document 'wsclean-2.8.tar.bz2'
+RUN tar -xvf wsclean-2.8.tar.bz2
+WORKDIR /wsclean-2.8
 RUN mkdir -p build
-WORKDIR /wsclean-2.6/build
+WORKDIR /wsclean-2.8/build
 RUN cmake ..
 RUN make -j2
 WORKDIR /
