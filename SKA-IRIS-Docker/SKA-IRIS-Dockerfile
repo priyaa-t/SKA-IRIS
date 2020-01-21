@@ -114,6 +114,7 @@ WORKDIR /
 # FFTW
 RUN wget http://www.fftw.org/fftw-3.3.8.tar.gz
 RUN tar -xzvf fftw-3.3.8.tar.gz
+RUN rm fftw-3.3.8.tar.gz
 WORKDIR fftw-3.3.8/
 #RUN make distclean
 RUN ./configure --enable-float --enable-threads --enable-shared
@@ -142,11 +143,13 @@ WORKDIR /
 # Install WSClean
 RUN wget --header 'Host: netcologne.dl.sourceforge.net' --user-agent 'Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://netcologne.dl.sourceforge.net/project/wsclean/wsclean-2.8/wsclean-2.8.tar.bz2' --header 'DNT: 1' --header 'Upgrade-Insecure-Requests: 1' 'https://netcologne.dl.sourceforge.net/project/wsclean/wsclean-2.8/wsclean-2.8.tar.bz2' --output-document 'wsclean-2.8.tar.bz2'
 RUN tar -xvf wsclean-2.8.tar.bz2
+RUN rm wsclean-2.8.tar.bz2
 WORKDIR /wsclean-2.8
 RUN mkdir -p build
 WORKDIR /wsclean-2.8/build
 RUN cmake ..
 RUN make -j2
+RUN cp wsclean /usr/local/bin/
 WORKDIR /
 
 # Install pyBDSF
