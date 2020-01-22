@@ -107,7 +107,8 @@ WORKDIR /casacore
 RUN mkdir -p build
 WORKDIR /casacore/build
 RUN cmake -DUSE_FFTW3=ON -DUSE_OPENMP=ON -DUSE_HDF5=ON -DUSE_THREADS=ON ..
-RUN make -j2
+RUN echo $CORES
+RUN make -j$CORES
 RUN make install
 WORKDIR /
 
@@ -118,10 +119,10 @@ RUN rm fftw-3.3.8.tar.gz
 WORKDIR fftw-3.3.8/
 #RUN make distclean
 RUN ./configure --enable-float --enable-threads --enable-shared
-RUN make -j2
+RUN make -j$CORES
 RUN make install
 RUN ./configure --enable-threads --enable-shared
-RUN make -j2
+RUN make -j$CORES
 RUN make install
 WORKDIR /
 ENV FFTW_HOME=/usr/local/lib/
@@ -135,8 +136,8 @@ RUN git clone https://gitlab.com/astron-idg/idg.git
 WORKDIR /idg
 RUN mkdir -p build
 WORKDIR /idg/build
-RUN cmake -DCMAKE_LIBRARY_PATH=/usr/local/lib -DCMAKE_CXX_FLAGS="-I/usr/local/include" -DCMAKE_PREFIX_PATH="/usr/local/lib" -DCMAKE_INSTALL_PREFIX=/usr/local/idg/ ..
-RUN make -j2
+RUN cmake -DCMAKE_LIBRARY_PATH=/usr/local/lib -DCMAKE_CXX_FLAGS="-I/usr/local/include" -DCMAKE_PREFIX_PATH="/usr/local/lib" -DCMAKE_INSTALL_PREFIX=/usr/local/idg/ -DPORTABLE=True ..
+RUN make -j$CORES
 RUN make install
 WORKDIR /
 
@@ -147,8 +148,8 @@ RUN rm wsclean-2.8.tar.bz2
 WORKDIR /wsclean-2.8
 RUN mkdir -p build
 WORKDIR /wsclean-2.8/build
-RUN cmake ..
-RUN make -j2
+RUN cmake -DPORTABLE=True ..
+RUN make -j$CORES
 RUN cp wsclean /usr/local/bin/
 WORKDIR /
 
