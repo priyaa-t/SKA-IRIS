@@ -67,7 +67,8 @@ RUN yum -y install emacs \
                    gsl \
                    gsl-devel \
                    bzip2 \
-                   doxygen
+                   doxygen \
+                   perf
 
 
 # Useful astronomy packages (python 2.7)
