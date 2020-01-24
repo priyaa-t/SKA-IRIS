@@ -28,8 +28,8 @@ RUN yum -y install emacs \
                    boost-devel \
                    python2-pip \
                    python3-pip \
-                   python-tk \
-                   python3-tk \
+                   python-tkinter \
+                   python36-tkinter \
                    git \
                    curl \
                    saods9 \
@@ -92,6 +92,8 @@ RUN pip3 install pywcs
 RUN pip3 install astropy
 RUN pip3 install scipy
 RUN pip3 install python-casacore
+RUN pip3 install memory-profiler
+RUN pip3 install psrecord
 
 # Install CASA
 RUN wget https://casa.nrao.edu/download/distro/casa-pipeline/release/el7/casa-pipeline-release-5.6.2-2.el7.tar.gz
@@ -108,7 +110,6 @@ WORKDIR /casacore
 RUN mkdir -p build
 WORKDIR /casacore/build
 RUN cmake -DUSE_FFTW3=ON -DUSE_OPENMP=ON -DUSE_HDF5=ON -DUSE_THREADS=ON ..
-RUN echo $CORES
 RUN make -j$CORES
 RUN make install
 WORKDIR /
