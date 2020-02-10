@@ -145,7 +145,7 @@ job.setExecutable('/bin/echo', arguments='hello')
   From your DIRAC UI you can add a dataset to the DIRAC file catalogue using the <code>dirac-dms-add-file</code> command. This example uploads the local file <code>myfile.txt</code> to the file catalogue on the Manchester HEP storage, where it is renamed <code>newfile.txt</code> and placed in the user directory in an individual user's folder. User folders have the format <code>firstname.lastname</code>.
   
   ```bash
-  dirac-dms-add-file /skatelescope.eu/users/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
+  dirac-dms-add-file /skatelescope.eu/user/m/my.name/newfile.txt /path/to/myfile.txt UKI-NORTHGRID-MAN-HEP-disk
   ```
 
  If you want to add a set o files, you must tar them and then upload tarred file using the <code>dirac-dms-add-file</code> instruction. Then you must untar them in your submitted script. 
@@ -155,6 +155,15 @@ job.setExecutable('/bin/echo', arguments='hello')
 
 <details>
   <summary markdown="span"> Downloading data from the DIRAC file catalogue </summary>
+ 
+ <hr>
+ 
+ From your DIRAC UI you can download a dataset from the DIRAC file catalogue using the <code>dirac-dms-get-file</code> command.
+ 
+ ```bash
+ dirac-dms-get-file LFN:/skatelescope.eu/user/m/my.name/newfile.txt
+ ```
+ <hr>
  
 </details>
 
